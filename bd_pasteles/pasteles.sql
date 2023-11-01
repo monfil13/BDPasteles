@@ -1,11 +1,9 @@
--- Active: 1698793341748@@127.0.0.1@3306@pasteles
 -- Base de Datos de Pasteles :)
 -- Avilés Monfil Daniel (21TE0390)
 
 CREATE DATABASE pasteles;
 USE pasteles;
 
--- Crear la tabla Cliente (relación 1:1)
 CREATE TABLE Cliente (
     ClienteID INT PRIMARY KEY,
     Nombre VARCHAR(50),
@@ -13,7 +11,6 @@ CREATE TABLE Cliente (
     Telefono VARCHAR(15)
 );
 
--- Crear la tabla Pedido (relación 1:M con Cliente)
 CREATE TABLE Pedido (
     PedidoID INT PRIMARY KEY,
     ClienteID INT,
@@ -21,21 +18,18 @@ CREATE TABLE Pedido (
     FOREIGN KEY (ClienteID) REFERENCES Cliente(ClienteID)
 );
 
--- Crear la tabla Ingrediente
 CREATE TABLE Ingrediente (
     IngredienteID INT PRIMARY KEY,
     Nombre VARCHAR(50),
     Descripcion VARCHAR(200)
 );
 
--- Crear la tabla Pastel (relación M:M con Ingrediente a través de la tabla PastelIngrediente)
 CREATE TABLE Pastel (
     PastelID INT PRIMARY KEY,
     Nombre VARCHAR(50),
     Precio DECIMAL(10, 2)
 );
 
--- Crear la tabla PastelIngrediente para la relación M:M entre Pastel e Ingrediente
 CREATE TABLE PastelIngrediente (
     PastelID INT,
     IngredienteID INT,
@@ -45,7 +39,6 @@ CREATE TABLE PastelIngrediente (
     FOREIGN KEY (IngredienteID) REFERENCES Ingrediente(IngredienteID)
 );
 
--- Insertar datos de ejemplo en la tabla Cliente
 INSERT INTO Cliente (ClienteID, Nombre, Direccion, Telefono) VALUES
     (1, 'Cliente1', 'Calle A, Ciudad', '123-456-7890'),
     (2, 'Cliente2', 'Calle B, Ciudad', '987-654-3210'),
@@ -58,8 +51,6 @@ INSERT INTO Cliente (ClienteID, Nombre, Direccion, Telefono) VALUES
     (9, 'Cliente9', 'Calle C, Colonia', '407-654-3210'),
     (10, 'ClienteA', 'Calle B, Ciudad', '000-654-3210');
     
-
--- Insertar datos de ejemplo en la tabla Pedido
 INSERT INTO Pedido (PedidoID, ClienteID, FechaPedido) VALUES
     (101, 1, '2023-01-15'),
     (102, 2, '2023-02-20'),
@@ -72,8 +63,6 @@ INSERT INTO Pedido (PedidoID, ClienteID, FechaPedido) VALUES
     (109, 9, '2023-12-20'),
     (110, 10, '2023-06-20');
     
-
--- Insertar datos de ejemplo en la tabla Ingrediente
 INSERT INTO Ingrediente (IngredienteID, Nombre, Descripcion) VALUES
     (1001, 'Harina', 'Harina para repostería'),
     (1002, 'Azúcar', 'Azúcar refinada'),
@@ -86,8 +75,6 @@ INSERT INTO Ingrediente (IngredienteID, Nombre, Descripcion) VALUES
     (1009, 'Almendras', 'Almendras que sirven para endulzar'),
     (1010, 'Cerezas', 'El toque final del pastel');
     
-
--- Insertar datos de ejemplo en la tabla Pastel
 INSERT INTO Pastel (PastelID, Nombre, Precio) VALUES
     (501, 'Pastel de Chocolate', 29.99),
     (502, 'Pastel de Fresa', 24.99),
@@ -100,7 +87,6 @@ INSERT INTO Pastel (PastelID, Nombre, Precio) VALUES
     (509, 'Pastel de Limón', 28.37),
     (510, 'Pastel de Piñon', 29.49);
 
--- Insertar datos de ejemplo en la tabla PastelIngrediente
 INSERT INTO PastelIngrediente (PastelID, IngredienteID, Cantidad) VALUES
     (501, 1001, 3),
     (501, 1002, 2),
@@ -123,7 +109,7 @@ INSERT INTO PastelIngrediente (PastelID, IngredienteID, Cantidad) VALUES
     (510, 1009, 6),
     (510, 1003, 3);
 
--- Consulta de todos los pasteles
+-- Consulta de pasteles
 SELECT * FROM Pastel;
 
 -- Consulta de pasteles con sus ingredientes
@@ -132,15 +118,14 @@ FROM Pastel p
 JOIN PastelIngrediente pi ON p.PastelID = pi.PastelID
 JOIN Ingrediente i ON pi.IngredienteID = i.IngredienteID;
 
-
--- Consulta para encontrar pasteles que contienen un ingrediente específico
+-- Consulta de pasteles que contienen el ingrediente de Carnation
 SELECT p.Nombre AS Pastel
 FROM Pastel p
 JOIN PastelIngrediente pi ON p.PastelID = pi.PastelID
 JOIN Ingrediente i ON pi.IngredienteID = i.IngredienteID
 WHERE i.Nombre = 'Carnation';
 
--- Consulta para recuperar los pasteles ordenados por precio de manera descendente
+-- Consulta de pasteles ordenados por precio descendente
 SELECT * FROM Pastel
 ORDER BY Precio DESC;
 
