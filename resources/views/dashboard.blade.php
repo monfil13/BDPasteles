@@ -7,7 +7,7 @@
     </head>
     <body>
      @include('partials.nav')
-     <h1>Home aprendible</h1>
+     <h1>aprendible Dashboard</h1>
            
     </body>
 </html>
