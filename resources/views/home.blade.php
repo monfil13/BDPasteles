@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('Estás en el inicio de Laravel!') }}
                 </div>
             </div>
         </div>
