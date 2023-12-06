@@ -47,7 +47,7 @@
 						<input type="checkbox">Confirmar Datos
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Login" class="btn float-right login_btn">
+						<input type="submit" value="Acceder" class="btn float-right login_btn">
 					</div>
 				</form>
 			</div>
