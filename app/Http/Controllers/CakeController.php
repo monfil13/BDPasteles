@@ -26,7 +26,7 @@ class CakeController extends Controller
 
 
 public function __construct(){
-    $this->middleware('auth', ['only'=>['update', 'edit', 'destroy']]);
+    $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index']]);
 }
 
     /**

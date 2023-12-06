@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $cake->name ?? "{{ __('Show') Cake" }}
+    {{ $consulta->name ?? "{{ __('Show') Consulta" }}
 @endsection
 
 @section('content')
@@ -11,23 +11,15 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Cake</span>
+                            <span class="card-title">{{ __('Show') }} Consulta</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('cakes.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('home') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
 
                     <div class="card-body">
-
-                        <div class="form-group">
-                            <strong>Nombre:</strong>
-                            {{ $cake->nombre }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Precio:</strong>
-                            {{ $cake->precio }}
-                        </div>
+                        z
 
                     </div>
                 </div>

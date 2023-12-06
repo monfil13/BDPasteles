@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CakeController;
+use App\Http\Controllers\ConsultaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,14 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('cakes', CakeController::class)->middleware('auth');
 
 Auth::routes();
+Route::resource('cakes', CakeController::class)->middleware('auth');
+Route::resource('consultas', ConsultaController::class)->middleware('auth');
+
 
 Route::get('/cake', [App\Http\Controllers\CakeController::class, 'index'])->name('cake.index');
-
-
+Route::get('/consulta', [App\Http\Controllers\ConsultaController::class, 'index'])->name('consulta.index');
