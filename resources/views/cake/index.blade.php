@@ -6,6 +6,7 @@
 
 @section('content')
     <div class="container-fluid">
+        <h1>Tabla de Pasteles</h1>
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -13,7 +14,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Cake') }}
+                                {{ __('Pasteles') }}
                             </span>
 @auth
                              <div class="float-right">
@@ -37,7 +38,7 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
+                                        <th>ID</th>
 
 										<th>Nombre</th>
 										<th>Precio</th>
