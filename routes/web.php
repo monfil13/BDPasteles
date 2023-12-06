@@ -16,12 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::resource('clientes', 'clienteController');
-Route::resource('ingredientes', 'ingredienteController');
-Route::resource('pastels', 'pastelController');
-Route::resource('pasteleros', 'pasteleroController');
-Route::resource('pastelingredientes', 'pastelingredienteController');
-Route::resource('pedidos', 'pedidoController');
-Route::resource('pedidoespecials', 'pedidoespecialController');
-Route::resource('sucursalespastelerias', 'sucursalespasteleriaController');
