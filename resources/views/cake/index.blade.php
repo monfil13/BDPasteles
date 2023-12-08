@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Cake
+    Pastel
 @endsection
 
 @section('content')

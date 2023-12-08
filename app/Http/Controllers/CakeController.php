@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cake;
+use App\Models\Ingredient;
 use Illuminate\Http\Request;
 
 /**
@@ -26,7 +27,26 @@ class CakeController extends Controller
 
 
 public function __construct(){
-    $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index']]);
+    $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index', 'consulta', 'consulta2']]);
+}
+
+
+
+/*CONSULTAS* */
+
+public function consulta()
+{
+    // Consulta para obtener todos los pasteles
+    $pasteles = Cake::all();
+    return view('cake.consulta', compact('pasteles'));
+
+}
+
+public function consulta2()
+{
+        // Consulta para obtener pasteles que cuesten más de 100 pesos
+        $pasteles = Cake::where('precio', '>', 100)->get();
+        return view('cake.consulta2', compact('pasteles'));
 }
 
     /**

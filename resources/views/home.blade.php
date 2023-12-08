@@ -51,8 +51,10 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="navbar-brand"><h3>👀Ver👀</h3>
-                    <!-- <a class="nav-link" href="{{ route('client.index') }}">Consultas</a>
-                        <a class="nav-link" href="{{ route('pedit.index') }}">Vistas</a> -->
+                    <a class="nav-link" href="{{ route('cake.consulta') }}">Consulta 1</a>
+                    <a class="nav-link" href="{{ route('cake.consulta2') }}">Consulta 2</a>
+                    <a class="nav-link" href="{{ route('cake.consulta3') }}">Consulta 3</a>
+                        <a class="nav-link" href="{{ route('pedit.index') }}">Vistas</a>
                     </li>
 
 <li class="nav-item">

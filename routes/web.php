@@ -38,6 +38,10 @@ Route::resource('pingredients', PingredientController::class)->middleware('auth'
 Route::resource('specials', SpecialController::class)->middleware('auth');
 Route::resource('sucursals', SucursalController::class)->middleware('auth');
 
+Route::get('/cake/consulta', [App\Http\Controllers\CakeController::class, 'consulta'])->name('cake.consulta');
+Route::get('/cake/consulta2', [App\Http\Controllers\CakeController::class, 'consulta2'])->name('cake.consulta2');
+Route::get('/special/consulta3', [App\Http\Controllers\SpecialController::class, 'consulta3'])->name('cake.consulta3');
+Route::get('/vista', [App\Http\Controllers\CakeController::class, 'index'])->name('vista.index');
 
 Route::get('/cake', [App\Http\Controllers\CakeController::class, 'index'])->name('cake.index');
 Route::get('/pasteler', [App\Http\Controllers\PastelerController::class, 'index'])->name('pasteler.index');

@@ -25,8 +25,17 @@ class SpecialController extends Controller
     }
 
     public function __construct(){
-        $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index']]);
+        $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index', 'consulta3']]);
     }
+
+    public function consulta3()
+    {
+        // Consulta para obtener todos los pasteles
+        $specials = Special::all();
+        return view('special.consulta3', compact('specials'));
+
+    }
+
 
     /**
      * Show the form for creating a new resource.
