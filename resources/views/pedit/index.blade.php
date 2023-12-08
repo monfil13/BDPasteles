@@ -21,6 +21,9 @@
                                   {{ __('Create New') }}
                                 </a>
                               </div>
+                              <div class="float-right">
+                                <a class="btn btn-primary" href="{{ route('home') }}"> {{ __('Regresar') }}</a>
+                            </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -35,7 +38,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 										<th>Id Client</th>
 										<th>Fechapedido</th>
 
@@ -46,7 +49,7 @@
                                     @foreach ($pedits as $pedit)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $pedit->id_client }}</td>
 											<td>{{ $pedit->fechapedido }}</td>
 

@@ -53,7 +53,7 @@ public function __construct(){
         $cake = Cake::create($request->all());
 
         return redirect()->route('cakes.index')
-            ->with('success', 'Pastel creado exitosamente.');
+            ->with('success', 'Pastel registrado exitosamente.');
     }
 
     /**
@@ -96,7 +96,7 @@ public function __construct(){
         $cake->update($request->all());
 
         return redirect()->route('cakes.index')
-            ->with('success', 'Cake updated successfully');
+            ->with('success', 'Pastel actualizado exitosamente.');
     }
 
     /**
@@ -109,6 +109,6 @@ public function __construct(){
         $cake = Cake::find($id)->delete();
 
         return redirect()->route('cakes.index')
-            ->with('success', 'Cake deleted successfully');
+            ->with('success', 'Pastel eliminado exitosamente.');
     }
 }

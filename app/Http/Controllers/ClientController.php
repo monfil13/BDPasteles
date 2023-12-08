@@ -24,6 +24,10 @@ class ClientController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $clients->perPage());
     }
 
+    public function __construct(){
+        $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index']]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -48,7 +52,7 @@ class ClientController extends Controller
         $client = Client::create($request->all());
 
         return redirect()->route('clients.index')
-            ->with('success', 'Client created successfully.');
+            ->with('success', 'Cliente registrado exitosamente.');
     }
 
     /**
@@ -91,7 +95,7 @@ class ClientController extends Controller
         $client->update($request->all());
 
         return redirect()->route('clients.index')
-            ->with('success', 'Client updated successfully');
+            ->with('success', 'Cliente actualizado exitosamente.');
     }
 
     /**
@@ -104,6 +108,6 @@ class ClientController extends Controller
         $client = Client::find($id)->delete();
 
         return redirect()->route('clients.index')
-            ->with('success', 'Client deleted successfully');
+            ->with('success', 'Cliente eliminado exitosamente. ');
     }
 }

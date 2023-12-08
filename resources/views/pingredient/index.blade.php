@@ -21,6 +21,9 @@
                                   {{ __('Create New') }}
                                 </a>
                               </div>
+                              <div class="float-right">
+                                <a class="btn btn-primary" href="{{ route('home') }}"> {{ __('Regresar') }}</a>
+                            </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -35,7 +38,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 										<th>Id Cake</th>
 										<th>Id Ingredient</th>
 										<th>Cantidad</th>
@@ -47,7 +50,7 @@
                                     @foreach ($pingredients as $pingredient)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $pingredient->id_cake }}</td>
 											<td>{{ $pingredient->id_ingredient }}</td>
 											<td>{{ $pingredient->cantidad }}</td>

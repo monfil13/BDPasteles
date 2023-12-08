@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $client->name ?? "{{ __('Show') Client" }}
+    {{ $client->name ?? "{{ __('Mostrar') Cliente" }}
 @endsection
 
 @section('content')
@@ -25,11 +25,11 @@
                             {{ $client->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Direccion:</strong>
+                            <strong>Dirección:</strong>
                             {{ $client->direccion }}
                         </div>
                         <div class="form-group">
-                            <strong>Telefono:</strong>
+                            <strong>Teléfono:</strong>
                             {{ $client->telefono }}
                         </div>
 

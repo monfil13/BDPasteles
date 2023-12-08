@@ -21,6 +21,9 @@
                                   {{ __('Create New') }}
                                 </a>
                               </div>
+                              <div class="float-right">
+                                <a class="btn btn-primary" href="{{ route('home') }}"> {{ __('Regresar') }}</a>
+                            </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))

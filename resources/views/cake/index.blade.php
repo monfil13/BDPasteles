@@ -59,7 +59,7 @@
 
                                             <td>
                                                 <form action="{{ route('cakes.destroy',$cake->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('cakes.show',$cake->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar Detalles') }}</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('cakes.show',$cake->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar Datos') }}</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('cakes.edit',$cake->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
                                                     @csrf
                                                     @method('DELETE')

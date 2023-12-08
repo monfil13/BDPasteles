@@ -24,6 +24,9 @@ class PingredientController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $pingredients->perPage());
     }
 
+    public function __construct(){
+        $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index']]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -48,7 +51,7 @@ class PingredientController extends Controller
         $pingredient = Pingredient::create($request->all());
 
         return redirect()->route('pingredients.index')
-            ->with('success', 'Pingredient created successfully.');
+            ->with('success', 'Pastel-Ingrediente registrado exitosamente.');
     }
 
     /**
@@ -91,7 +94,7 @@ class PingredientController extends Controller
         $pingredient->update($request->all());
 
         return redirect()->route('pingredients.index')
-            ->with('success', 'Pingredient updated successfully');
+            ->with('success', 'Pastel-Ingrediente actualizado exitosamente.');
     }
 
     /**
@@ -104,6 +107,6 @@ class PingredientController extends Controller
         $pingredient = Pingredient::find($id)->delete();
 
         return redirect()->route('pingredients.index')
-            ->with('success', 'Pingredient deleted successfully');
+            ->with('success', 'Pastel-Ingrediente eliminado exitosamente.');
     }
 }

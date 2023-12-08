@@ -23,6 +23,7 @@ return new class extends Migration
             $table->timestamp('fechayhorapedido');
             $table->foreign('id_client')->references('id')->on('clients');
             $table->foreign('id_pasteler')->references('id')->on('pastelers');
+            $table->timestamps();
         });
     }
 

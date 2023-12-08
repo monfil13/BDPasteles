@@ -24,6 +24,10 @@ class PeditController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $pedits->perPage());
     }
 
+    public function __construct(){
+        $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index']]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -48,7 +52,7 @@ class PeditController extends Controller
         $pedit = Pedit::create($request->all());
 
         return redirect()->route('pedits.index')
-            ->with('success', 'Pedit created successfully.');
+            ->with('success', 'Pedido registrado exitosamente.');
     }
 
     /**
@@ -91,7 +95,7 @@ class PeditController extends Controller
         $pedit->update($request->all());
 
         return redirect()->route('pedits.index')
-            ->with('success', 'Pedit updated successfully');
+            ->with('success', 'Pedido actualizado exitosamente.');
     }
 
     /**
@@ -104,6 +108,6 @@ class PeditController extends Controller
         $pedit = Pedit::find($id)->delete();
 
         return redirect()->route('pedits.index')
-            ->with('success', 'Pedit deleted successfully');
+            ->with('success', 'Pedido eliminado exitosamente.');
     }
 }

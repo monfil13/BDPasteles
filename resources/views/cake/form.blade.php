@@ -15,5 +15,7 @@
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">{{ __('Confirmar') }}</button>
+            <a class="btn btn-primary" href="{{ route('cake.index') }}"> {{ __('Cancelar') }}</a>
     </div>
+
 </div>

@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Client
+    Cliente
 @endsection
 
 @section('content')
     <div class="container-fluid">
+        <h1>Tabla de Clientes</h1>
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -39,11 +40,11 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
+                                        <th>ID</th>
 
 										<th>Nombre</th>
-										<th>Direccion</th>
-										<th>Telefono</th>
+										<th>Dirección</th>
+										<th>Teléfono</th>
 
                                         <th></th>
                                     </tr>
@@ -77,5 +78,5 @@
             </div>
         </div>
     </div>
-    @endauth   
+    @endauth
 @endsection

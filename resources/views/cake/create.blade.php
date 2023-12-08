@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ __('Create') }} Cake
+    {{ __('Agregar') }} Pastel
+
 @endsection
 
 @section('content')

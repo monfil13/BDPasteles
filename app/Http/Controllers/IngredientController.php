@@ -24,6 +24,10 @@ class IngredientController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $ingredients->perPage());
     }
 
+    public function __construct(){
+        $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index']]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -48,7 +52,7 @@ class IngredientController extends Controller
         $ingredient = Ingredient::create($request->all());
 
         return redirect()->route('ingredients.index')
-            ->with('success', 'Ingredient created successfully.');
+            ->with('success', 'Ingrediente registrado exitosamente.');
     }
 
     /**
@@ -91,7 +95,7 @@ class IngredientController extends Controller
         $ingredient->update($request->all());
 
         return redirect()->route('ingredients.index')
-            ->with('success', 'Ingredient updated successfully');
+            ->with('success', 'Ingrediente actualizado exitosamente.');
     }
 
     /**
@@ -104,6 +108,6 @@ class IngredientController extends Controller
         $ingredient = Ingredient::find($id)->delete();
 
         return redirect()->route('ingredients.index')
-            ->with('success', 'Ingredient deleted successfully');
+            ->with('success', 'Ingrediente eliminado exitosamente.');
     }
 }

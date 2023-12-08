@@ -24,6 +24,10 @@ class SpecialController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $specials->perPage());
     }
 
+    public function __construct(){
+        $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index']]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -48,7 +52,7 @@ class SpecialController extends Controller
         $special = Special::create($request->all());
 
         return redirect()->route('specials.index')
-            ->with('success', 'Special created successfully.');
+            ->with('success', 'Pedido Especial registrado exitosamente.');
     }
 
     /**
@@ -91,7 +95,7 @@ class SpecialController extends Controller
         $special->update($request->all());
 
         return redirect()->route('specials.index')
-            ->with('success', 'Special updated successfully');
+            ->with('success', 'Pedido Especial actualizado exitosamente.');
     }
 
     /**
@@ -104,6 +108,6 @@ class SpecialController extends Controller
         $special = Special::find($id)->delete();
 
         return redirect()->route('specials.index')
-            ->with('success', 'Special deleted successfully');
+            ->with('success', 'Pedido Especial eliminado exitosamente.');
     }
 }

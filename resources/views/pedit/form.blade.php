@@ -1,6 +1,6 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-        
+
         <div class="form-group">
             {{ Form::label('id_client') }}
             {{ Form::text('id_client', $pedit->id_client, ['class' => 'form-control' . ($errors->has('id_client') ? ' is-invalid' : ''), 'placeholder' => 'Id Client']) }}
@@ -14,6 +14,7 @@
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
+        <button type="submit" class="btn btn-primary">{{ __('Confirmar') }}</button>
+        <a class="btn btn-primary" href="{{ route('pedit.index') }}"> {{ __('Cancelar') }}</a>
     </div>
 </div>

@@ -3,6 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CakeController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\PastelerController;
+use App\Http\Controllers\PeditController;
+use App\Http\Controllers\IngredientController;
+use App\Http\Controllers\PingredientController;
+use App\Http\Controllers\SpecialController;
+use App\Http\Controllers\SucursalController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

@@ -24,6 +24,10 @@ class SucursalController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $sucursals->perPage());
     }
 
+    public function __construct(){
+        $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index']]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -48,7 +52,7 @@ class SucursalController extends Controller
         $sucursal = Sucursal::create($request->all());
 
         return redirect()->route('sucursals.index')
-            ->with('success', 'Sucursal created successfully.');
+            ->with('success', 'Sucursal de Pastelería registrada exitosamente.');
     }
 
     /**
@@ -91,7 +95,7 @@ class SucursalController extends Controller
         $sucursal->update($request->all());
 
         return redirect()->route('sucursals.index')
-            ->with('success', 'Sucursal updated successfully');
+            ->with('success', 'Sucursal de Pastelería actualizado exitosamente.');
     }
 
     /**
@@ -104,6 +108,6 @@ class SucursalController extends Controller
         $sucursal = Sucursal::find($id)->delete();
 
         return redirect()->route('sucursals.index')
-            ->with('success', 'Sucursal deleted successfully');
+            ->with('success', 'Sucursal de Pastelería eliminado exitosamente.');
     }
 }

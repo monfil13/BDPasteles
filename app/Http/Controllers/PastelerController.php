@@ -24,6 +24,10 @@ class PastelerController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $pastelers->perPage());
     }
 
+    public function __construct(){
+        $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index']]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -48,7 +52,7 @@ class PastelerController extends Controller
         $pasteler = Pasteler::create($request->all());
 
         return redirect()->route('pastelers.index')
-            ->with('success', 'Pasteler created successfully.');
+            ->with('success', 'Pastelero registrado exitosamente.');
     }
 
     /**
@@ -91,7 +95,7 @@ class PastelerController extends Controller
         $pasteler->update($request->all());
 
         return redirect()->route('pastelers.index')
-            ->with('success', 'Pasteler updated successfully');
+            ->with('success', 'Pastelero actualizado exitosamente.');
     }
 
     /**
@@ -104,6 +108,6 @@ class PastelerController extends Controller
         $pasteler = Pasteler::find($id)->delete();
 
         return redirect()->route('pastelers.index')
-            ->with('success', 'Pasteler deleted successfully');
+            ->with('success', 'Pastelero eliminado exitosamente.');
     }
 }

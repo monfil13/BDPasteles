@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ __('Update') }} Cake
+    {{ __('Actualizar') }} Pastel
 @endsection
 
 @section('content')
