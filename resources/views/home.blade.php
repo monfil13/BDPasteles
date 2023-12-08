@@ -15,24 +15,23 @@
     <style>
         /* Establece el color de fondo y el color del texto de la barra de navegación */
         .custom-navbar {
-            background-color: #4CAF50; /* Color de fondo */
+            background-color: #383600; /* Color de fondo */
             color: #ffffff; /* Color del texto */
         }
         /* Establece el color de fondo al pasar el ratón por encima de los elementos de la barra de navegación */
         .custom-navbar .nav-item:hover {
-            background-color: #45a049; /* Color de fondo al pasar el ratón por encima */
+            background-color: rgb(130, 132, 28); /* Color de fondo al pasar el ratón por encima */
         }
         .custom-images-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Establece la altura del contenedor al 100% de la altura de la ventana */
+            height: 150vh; /* Establece la altura del contenedor al 100% de la altura de la ventana */
             position: relative;
         }
         .custom-images {
-            width: 300px; /* Establece el tamaño deseado en píxeles */
+            width: 300px;
             height: auto;
-            /* Alinea la imagen en la parte inferior del contenedor */
             position: absolute;
             bottom: 0;
         }
@@ -43,30 +42,33 @@
     <div class="container mt-3">
         <!-- Barra de navegación colorida -->
         <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
-            <a class="navbar-brand" href="{{ route('home') }}">Bienvenido, ¿qué deseas buscar?</a>
+            <a class="navbar-brand"><h1>¡Bienvenido a la BD de Pasteles! 🍰</h1></a>
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('consulta.index') }}">Consultas</a>
+                        <a class="navbar-brand"><h3>👀Ver👀</h3>
+                    <!-- <a class="nav-link" href="{{ route('client.index') }}">Consultas</a>
+                        <a class="nav-link" href="{{ route('pedit.index') }}">Vistas</a> -->
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('cake.index') }}">Pasteles</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('cake.index') }}">Pasteleros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('cake.index') }}">Clientes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('cake.index') }}">Pedidos</a>
-                    </li>
-                    <!-- Agrega enlaces a otras tres tablas según sea necesario -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('cake.index') }}">Ingredientes</a>
+
+<li class="nav-item">
+    <a class="navbar-brand"><h3>🍒 Tablas - -</h3>
+            <a class="nav-link" href="{{ route('cake.index') }}">Pasteles</a>
+            <a class="nav-link" href="{{ route('pasteler.index') }}">Pasteleros</a>
+            <a class="nav-link" href="{{ route('client.index') }}">Clientes</a>
+            <a class="nav-link" href="{{ route('pedit.index') }}">Pedidos</a>
+
+</li>
+<li class="nav-item">
+    <a class="navbar-brand"><h3>- - CRUD 🍒</h3>
+                        <a class="nav-link" href="{{ route('ingredient.index') }}">Ingredientes</a>
+                        <a class="nav-link" href="{{ route('pingredient.index') }}">Pastel-Ingrediente</a>
+                        <a class="nav-link" href="{{ route('special.index') }}">Pedido Especial</a>
+                        <a class="nav-link" href="{{ route('sucursal.index') }}">Sucursales Pasteleria</a>
                     </li>
                 </ul>
             </div>

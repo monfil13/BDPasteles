@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ __('Update') }} Consulta
+    {{ __('Update') }} Pingredient
 @endsection
 
 @section('content')
@@ -13,14 +13,14 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Consulta</span>
+                        <span class="card-title">{{ __('Update') }} Pingredient</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('consultas.update', $consulta->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('pingredients.update', $pingredient->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('consulta.form')
+                            @include('pingredient.form')
 
                         </form>
                     </div>

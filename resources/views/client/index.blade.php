@@ -1,25 +1,26 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Cake
+    Client
 @endsection
 
 @section('content')
     <div class="container-fluid">
-        <h1>Tabla de Pasteles</h1>
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title">
-                                {{ __('Pasteles') }}
+   @auth
+
+                      <span id="card_title">
+                                {{ __('Cliente') }}
                             </span>
-@auth
+
                              <div class="float-right">
-                                <a href="{{ route('cakes.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Agregar Pastel') }}
+                                <a href="{{ route('clients.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                  {{ __('Agregar Cliente') }}
                                 </a>
                               </div>
                               <div class="float-right">
@@ -38,29 +39,28 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>ID</th>
+                                        <th>No</th>
 
 										<th>Nombre</th>
-                                        <th>Precio</th>
+										<th>Direccion</th>
+										<th>Telefono</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
-
-
-                                    @foreach ($cakes as $cake)
+                                    @foreach ($clients as $client)
                                         <tr>
                                             <td>{{ ++$i }}</td>
 
-											<td>{{ $cake->nombre }}</td>
-											<td>{{ $cake->precio }}</td>
+											<td>{{ $client->nombre }}</td>
+											<td>{{ $client->direccion }}</td>
+											<td>{{ $client->telefono }}</td>
 
                                             <td>
-                                                <form action="{{ route('cakes.destroy',$cake->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('cakes.show',$cake->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar Detalles') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('cakes.edit',$cake->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
+                                                <form action="{{ route('clients.destroy',$client->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('clients.show',$client->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar Datos') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('clients.edit',$client->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
@@ -73,9 +73,9 @@
                         </div>
                     </div>
                 </div>
-                @endauth
-                {!! $cakes->links() !!}
+                {!! $clients->links() !!}
             </div>
         </div>
     </div>
+    @endauth   
 @endsection

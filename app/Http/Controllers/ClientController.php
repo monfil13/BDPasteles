@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cake;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 /**
- * Class CakeController
+ * Class ClientController
  * @package App\Http\Controllers
  */
-class CakeController extends Controller
+class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,16 +18,11 @@ class CakeController extends Controller
      */
     public function index()
     {
-        $cakes = Cake::paginate();
+        $clients = Client::paginate();
 
-        return view('cake.index', compact('cakes'))
-            ->with('i', (request()->input('page', 1) - 1) * $cakes->perPage());
+        return view('client.index', compact('clients'))
+            ->with('i', (request()->input('page', 1) - 1) * $clients->perPage());
     }
-
-
-public function __construct(){
-    $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index']]);
-}
 
     /**
      * Show the form for creating a new resource.
@@ -36,8 +31,8 @@ public function __construct(){
      */
     public function create()
     {
-        $cake = new Cake();
-        return view('cake.create', compact('cake'));
+        $client = new Client();
+        return view('client.create', compact('client'));
     }
 
     /**
@@ -48,12 +43,12 @@ public function __construct(){
      */
     public function store(Request $request)
     {
-        request()->validate(Cake::$rules);
+        request()->validate(Client::$rules);
 
-        $cake = Cake::create($request->all());
+        $client = Client::create($request->all());
 
-        return redirect()->route('cakes.index')
-            ->with('success', 'Pastel creado exitosamente.');
+        return redirect()->route('clients.index')
+            ->with('success', 'Client created successfully.');
     }
 
     /**
@@ -64,9 +59,9 @@ public function __construct(){
      */
     public function show($id)
     {
-        $cake = Cake::find($id);
+        $client = Client::find($id);
 
-        return view('cake.show', compact('cake'));
+        return view('client.show', compact('client'));
     }
 
     /**
@@ -77,26 +72,26 @@ public function __construct(){
      */
     public function edit($id)
     {
-        $cake = Cake::find($id);
+        $client = Client::find($id);
 
-        return view('cake.edit', compact('cake'));
+        return view('client.edit', compact('client'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Cake $cake
+     * @param  Client $client
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cake $cake)
+    public function update(Request $request, Client $client)
     {
-        request()->validate(Cake::$rules);
+        request()->validate(Client::$rules);
 
-        $cake->update($request->all());
+        $client->update($request->all());
 
-        return redirect()->route('cakes.index')
-            ->with('success', 'Cake updated successfully');
+        return redirect()->route('clients.index')
+            ->with('success', 'Client updated successfully');
     }
 
     /**
@@ -106,9 +101,9 @@ public function __construct(){
      */
     public function destroy($id)
     {
-        $cake = Cake::find($id)->delete();
+        $client = Client::find($id)->delete();
 
-        return redirect()->route('cakes.index')
-            ->with('success', 'Cake deleted successfully');
+        return redirect()->route('clients.index')
+            ->with('success', 'Client deleted successfully');
     }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ __('Update') }} Cake
+    {{ __('Update') }} Pasteler
 @endsection
 
 @section('content')
@@ -13,14 +13,14 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Actualizar') }} Pastel</span>
+                        <span class="card-title">{{ __('Update') }} Pasteler</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('cakes.update', $cake->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('pastelers.update', $pasteler->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('cake.form')
+                            @include('pasteler.form')
 
                         </form>
                     </div>

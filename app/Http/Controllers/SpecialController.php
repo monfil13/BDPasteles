@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cake;
+use App\Models\Special;
 use Illuminate\Http\Request;
 
 /**
- * Class CakeController
+ * Class SpecialController
  * @package App\Http\Controllers
  */
-class CakeController extends Controller
+class SpecialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,16 +18,11 @@ class CakeController extends Controller
      */
     public function index()
     {
-        $cakes = Cake::paginate();
+        $specials = Special::paginate();
 
-        return view('cake.index', compact('cakes'))
-            ->with('i', (request()->input('page', 1) - 1) * $cakes->perPage());
+        return view('special.index', compact('specials'))
+            ->with('i', (request()->input('page', 1) - 1) * $specials->perPage());
     }
-
-
-public function __construct(){
-    $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index']]);
-}
 
     /**
      * Show the form for creating a new resource.
@@ -36,8 +31,8 @@ public function __construct(){
      */
     public function create()
     {
-        $cake = new Cake();
-        return view('cake.create', compact('cake'));
+        $special = new Special();
+        return view('special.create', compact('special'));
     }
 
     /**
@@ -48,12 +43,12 @@ public function __construct(){
      */
     public function store(Request $request)
     {
-        request()->validate(Cake::$rules);
+        request()->validate(Special::$rules);
 
-        $cake = Cake::create($request->all());
+        $special = Special::create($request->all());
 
-        return redirect()->route('cakes.index')
-            ->with('success', 'Pastel creado exitosamente.');
+        return redirect()->route('specials.index')
+            ->with('success', 'Special created successfully.');
     }
 
     /**
@@ -64,9 +59,9 @@ public function __construct(){
      */
     public function show($id)
     {
-        $cake = Cake::find($id);
+        $special = Special::find($id);
 
-        return view('cake.show', compact('cake'));
+        return view('special.show', compact('special'));
     }
 
     /**
@@ -77,26 +72,26 @@ public function __construct(){
      */
     public function edit($id)
     {
-        $cake = Cake::find($id);
+        $special = Special::find($id);
 
-        return view('cake.edit', compact('cake'));
+        return view('special.edit', compact('special'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Cake $cake
+     * @param  Special $special
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cake $cake)
+    public function update(Request $request, Special $special)
     {
-        request()->validate(Cake::$rules);
+        request()->validate(Special::$rules);
 
-        $cake->update($request->all());
+        $special->update($request->all());
 
-        return redirect()->route('cakes.index')
-            ->with('success', 'Cake updated successfully');
+        return redirect()->route('specials.index')
+            ->with('success', 'Special updated successfully');
     }
 
     /**
@@ -106,9 +101,9 @@ public function __construct(){
      */
     public function destroy($id)
     {
-        $cake = Cake::find($id)->delete();
+        $special = Special::find($id)->delete();
 
-        return redirect()->route('cakes.index')
-            ->with('success', 'Cake deleted successfully');
+        return redirect()->route('specials.index')
+            ->with('success', 'Special deleted successfully');
     }
 }

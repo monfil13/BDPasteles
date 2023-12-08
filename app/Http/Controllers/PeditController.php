@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cake;
+use App\Models\Pedit;
 use Illuminate\Http\Request;
 
 /**
- * Class CakeController
+ * Class PeditController
  * @package App\Http\Controllers
  */
-class CakeController extends Controller
+class PeditController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,16 +18,11 @@ class CakeController extends Controller
      */
     public function index()
     {
-        $cakes = Cake::paginate();
+        $pedits = Pedit::paginate();
 
-        return view('cake.index', compact('cakes'))
-            ->with('i', (request()->input('page', 1) - 1) * $cakes->perPage());
+        return view('pedit.index', compact('pedits'))
+            ->with('i', (request()->input('page', 1) - 1) * $pedits->perPage());
     }
-
-
-public function __construct(){
-    $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index']]);
-}
 
     /**
      * Show the form for creating a new resource.
@@ -36,8 +31,8 @@ public function __construct(){
      */
     public function create()
     {
-        $cake = new Cake();
-        return view('cake.create', compact('cake'));
+        $pedit = new Pedit();
+        return view('pedit.create', compact('pedit'));
     }
 
     /**
@@ -48,12 +43,12 @@ public function __construct(){
      */
     public function store(Request $request)
     {
-        request()->validate(Cake::$rules);
+        request()->validate(Pedit::$rules);
 
-        $cake = Cake::create($request->all());
+        $pedit = Pedit::create($request->all());
 
-        return redirect()->route('cakes.index')
-            ->with('success', 'Pastel creado exitosamente.');
+        return redirect()->route('pedits.index')
+            ->with('success', 'Pedit created successfully.');
     }
 
     /**
@@ -64,9 +59,9 @@ public function __construct(){
      */
     public function show($id)
     {
-        $cake = Cake::find($id);
+        $pedit = Pedit::find($id);
 
-        return view('cake.show', compact('cake'));
+        return view('pedit.show', compact('pedit'));
     }
 
     /**
@@ -77,26 +72,26 @@ public function __construct(){
      */
     public function edit($id)
     {
-        $cake = Cake::find($id);
+        $pedit = Pedit::find($id);
 
-        return view('cake.edit', compact('cake'));
+        return view('pedit.edit', compact('pedit'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Cake $cake
+     * @param  Pedit $pedit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cake $cake)
+    public function update(Request $request, Pedit $pedit)
     {
-        request()->validate(Cake::$rules);
+        request()->validate(Pedit::$rules);
 
-        $cake->update($request->all());
+        $pedit->update($request->all());
 
-        return redirect()->route('cakes.index')
-            ->with('success', 'Cake updated successfully');
+        return redirect()->route('pedits.index')
+            ->with('success', 'Pedit updated successfully');
     }
 
     /**
@@ -106,9 +101,9 @@ public function __construct(){
      */
     public function destroy($id)
     {
-        $cake = Cake::find($id)->delete();
+        $pedit = Pedit::find($id)->delete();
 
-        return redirect()->route('cakes.index')
-            ->with('success', 'Cake deleted successfully');
+        return redirect()->route('pedits.index')
+            ->with('success', 'Pedit deleted successfully');
     }
 }

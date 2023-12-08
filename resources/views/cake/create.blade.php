@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Create') }} Cake</span>
+                        <span class="card-title">{{ __('Agregar') }} Pastel</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('cakes.store') }}"  role="form" enctype="multipart/form-data">

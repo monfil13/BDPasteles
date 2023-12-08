@@ -5,19 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Consulta
+ * Class Sucursal
  *
  * @property $id
+ * @property $nombre
+ * @property $direccion
+ * @property $ciudad
+ * @property $nombrerecepcionista
  * @property $created_at
  * @property $updated_at
  *
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Consulta extends Model
+class Sucursal extends Model
 {
     
     static $rules = [
+		'nombre' => 'required',
+		'direccion' => 'required',
+		'ciudad' => 'required',
+		'nombrerecepcionista' => 'required',
     ];
 
     protected $perPage = 20;
@@ -27,7 +35,7 @@ class Consulta extends Model
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['nombre','direccion','ciudad','nombrerecepcionista'];
 
 
 

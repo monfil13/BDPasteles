@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Cake
+    Pasteler
 @endsection
 
 @section('content')
     <div class="container-fluid">
-        <h1>Tabla de Pasteles</h1>
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -14,17 +13,14 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Pasteles') }}
+                                {{ __('Pasteler') }}
                             </span>
-@auth
+
                              <div class="float-right">
-                                <a href="{{ route('cakes.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Agregar Pastel') }}
+                                <a href="{{ route('pastelers.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                  {{ __('Create New') }}
                                 </a>
                               </div>
-                              <div class="float-right">
-                                <a class="btn btn-primary" href="{{ route('home') }}"> {{ __('Regresar') }}</a>
-                            </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -41,29 +37,32 @@
                                         <th>ID</th>
 
 										<th>Nombre</th>
-                                        <th>Precio</th>
+										<th>Apellido</th>
+										<th>Alias</th>
+										<th>Teléfono</th>
+										<th>Años Trabajados</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
-
-
-                                    @foreach ($cakes as $cake)
+                                    @foreach ($pastelers as $pasteler)
                                         <tr>
                                             <td>{{ ++$i }}</td>
 
-											<td>{{ $cake->nombre }}</td>
-											<td>{{ $cake->precio }}</td>
+											<td>{{ $pasteler->nombre }}</td>
+											<td>{{ $pasteler->apellido }}</td>
+											<td>{{ $pasteler->alias }}</td>
+											<td>{{ $pasteler->telefono }}</td>
+											<td>{{ $pasteler->añostrabajados }}</td>
 
                                             <td>
-                                                <form action="{{ route('cakes.destroy',$cake->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('cakes.show',$cake->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar Detalles') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('cakes.edit',$cake->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
+                                                <form action="{{ route('pastelers.destroy',$pasteler->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('pastelers.show',$pasteler->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('pastelers.edit',$pasteler->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -73,8 +72,7 @@
                         </div>
                     </div>
                 </div>
-                @endauth
-                {!! $cakes->links() !!}
+                {!! $pastelers->links() !!}
             </div>
         </div>
     </div>

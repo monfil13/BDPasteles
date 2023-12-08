@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cake;
+use App\Models\Pasteler;
 use Illuminate\Http\Request;
 
 /**
- * Class CakeController
+ * Class PastelerController
  * @package App\Http\Controllers
  */
-class CakeController extends Controller
+class PastelerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,16 +18,11 @@ class CakeController extends Controller
      */
     public function index()
     {
-        $cakes = Cake::paginate();
+        $pastelers = Pasteler::paginate();
 
-        return view('cake.index', compact('cakes'))
-            ->with('i', (request()->input('page', 1) - 1) * $cakes->perPage());
+        return view('pasteler.index', compact('pastelers'))
+            ->with('i', (request()->input('page', 1) - 1) * $pastelers->perPage());
     }
-
-
-public function __construct(){
-    $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index']]);
-}
 
     /**
      * Show the form for creating a new resource.
@@ -36,8 +31,8 @@ public function __construct(){
      */
     public function create()
     {
-        $cake = new Cake();
-        return view('cake.create', compact('cake'));
+        $pasteler = new Pasteler();
+        return view('pasteler.create', compact('pasteler'));
     }
 
     /**
@@ -48,12 +43,12 @@ public function __construct(){
      */
     public function store(Request $request)
     {
-        request()->validate(Cake::$rules);
+        request()->validate(Pasteler::$rules);
 
-        $cake = Cake::create($request->all());
+        $pasteler = Pasteler::create($request->all());
 
-        return redirect()->route('cakes.index')
-            ->with('success', 'Pastel creado exitosamente.');
+        return redirect()->route('pastelers.index')
+            ->with('success', 'Pasteler created successfully.');
     }
 
     /**
@@ -64,9 +59,9 @@ public function __construct(){
      */
     public function show($id)
     {
-        $cake = Cake::find($id);
+        $pasteler = Pasteler::find($id);
 
-        return view('cake.show', compact('cake'));
+        return view('pasteler.show', compact('pasteler'));
     }
 
     /**
@@ -77,26 +72,26 @@ public function __construct(){
      */
     public function edit($id)
     {
-        $cake = Cake::find($id);
+        $pasteler = Pasteler::find($id);
 
-        return view('cake.edit', compact('cake'));
+        return view('pasteler.edit', compact('pasteler'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Cake $cake
+     * @param  Pasteler $pasteler
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cake $cake)
+    public function update(Request $request, Pasteler $pasteler)
     {
-        request()->validate(Cake::$rules);
+        request()->validate(Pasteler::$rules);
 
-        $cake->update($request->all());
+        $pasteler->update($request->all());
 
-        return redirect()->route('cakes.index')
-            ->with('success', 'Cake updated successfully');
+        return redirect()->route('pastelers.index')
+            ->with('success', 'Pasteler updated successfully');
     }
 
     /**
@@ -106,9 +101,9 @@ public function __construct(){
      */
     public function destroy($id)
     {
-        $cake = Cake::find($id)->delete();
+        $pasteler = Pasteler::find($id)->delete();
 
-        return redirect()->route('cakes.index')
-            ->with('success', 'Cake deleted successfully');
+        return redirect()->route('pastelers.index')
+            ->with('success', 'Pasteler deleted successfully');
     }
 }

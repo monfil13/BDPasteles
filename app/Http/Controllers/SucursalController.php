@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cake;
+use App\Models\Sucursal;
 use Illuminate\Http\Request;
 
 /**
- * Class CakeController
+ * Class SucursalController
  * @package App\Http\Controllers
  */
-class CakeController extends Controller
+class SucursalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,16 +18,11 @@ class CakeController extends Controller
      */
     public function index()
     {
-        $cakes = Cake::paginate();
+        $sucursals = Sucursal::paginate();
 
-        return view('cake.index', compact('cakes'))
-            ->with('i', (request()->input('page', 1) - 1) * $cakes->perPage());
+        return view('sucursal.index', compact('sucursals'))
+            ->with('i', (request()->input('page', 1) - 1) * $sucursals->perPage());
     }
-
-
-public function __construct(){
-    $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index']]);
-}
 
     /**
      * Show the form for creating a new resource.
@@ -36,8 +31,8 @@ public function __construct(){
      */
     public function create()
     {
-        $cake = new Cake();
-        return view('cake.create', compact('cake'));
+        $sucursal = new Sucursal();
+        return view('sucursal.create', compact('sucursal'));
     }
 
     /**
@@ -48,12 +43,12 @@ public function __construct(){
      */
     public function store(Request $request)
     {
-        request()->validate(Cake::$rules);
+        request()->validate(Sucursal::$rules);
 
-        $cake = Cake::create($request->all());
+        $sucursal = Sucursal::create($request->all());
 
-        return redirect()->route('cakes.index')
-            ->with('success', 'Pastel creado exitosamente.');
+        return redirect()->route('sucursals.index')
+            ->with('success', 'Sucursal created successfully.');
     }
 
     /**
@@ -64,9 +59,9 @@ public function __construct(){
      */
     public function show($id)
     {
-        $cake = Cake::find($id);
+        $sucursal = Sucursal::find($id);
 
-        return view('cake.show', compact('cake'));
+        return view('sucursal.show', compact('sucursal'));
     }
 
     /**
@@ -77,26 +72,26 @@ public function __construct(){
      */
     public function edit($id)
     {
-        $cake = Cake::find($id);
+        $sucursal = Sucursal::find($id);
 
-        return view('cake.edit', compact('cake'));
+        return view('sucursal.edit', compact('sucursal'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Cake $cake
+     * @param  Sucursal $sucursal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cake $cake)
+    public function update(Request $request, Sucursal $sucursal)
     {
-        request()->validate(Cake::$rules);
+        request()->validate(Sucursal::$rules);
 
-        $cake->update($request->all());
+        $sucursal->update($request->all());
 
-        return redirect()->route('cakes.index')
-            ->with('success', 'Cake updated successfully');
+        return redirect()->route('sucursals.index')
+            ->with('success', 'Sucursal updated successfully');
     }
 
     /**
@@ -106,9 +101,9 @@ public function __construct(){
      */
     public function destroy($id)
     {
-        $cake = Cake::find($id)->delete();
+        $sucursal = Sucursal::find($id)->delete();
 
-        return redirect()->route('cakes.index')
-            ->with('success', 'Cake deleted successfully');
+        return redirect()->route('sucursals.index')
+            ->with('success', 'Sucursal deleted successfully');
     }
 }
