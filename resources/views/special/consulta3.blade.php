@@ -15,13 +15,13 @@ use App\Http\Controllers\SpecialController;
     }
 
     th, td {
-      border: 1px solid #dddddd;
+      border: 1px solid #000000;
       text-align: left;
       padding: 8px;
     }
 
     th {
-      background-color: #2ca799;
+      background-color: #e388c5;
     }
 
     tr:nth-child(even) {

@@ -10,6 +10,8 @@ use App\Http\Controllers\PingredientController;
 use App\Http\Controllers\SpecialController;
 use App\Http\Controllers\SucursalController;
 
+use App\Http\Controllers\BackupController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,3 +54,5 @@ Route::get('/pingredient', [App\Http\Controllers\PingredientController::class, '
 Route::get('/special', [App\Http\Controllers\SpecialController::class, 'index'])->name('special.index');
 Route::get('/sucursal', [App\Http\Controllers\SucursalController::class, 'index'])->name('sucursal.index');
 
+Route::get('/backup', 'BackupController@create')->middleware('backup');
+Route::get('/backup', [BackupController::class, 'createBackup'])->name('createBackup');

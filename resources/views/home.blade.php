@@ -54,7 +54,6 @@
                     <a class="nav-link" href="{{ route('cake.consulta') }}">Consulta 1</a>
                     <a class="nav-link" href="{{ route('cake.consulta2') }}">Consulta 2</a>
                     <a class="nav-link" href="{{ route('cake.consulta3') }}">Consulta 3</a>
-                        <a class="nav-link" href="{{ route('pedit.index') }}">Vistas</a>
                     </li>
 
 <li class="nav-item">
@@ -76,18 +75,15 @@
             </div>
         </nav>
 
-        <!-- Agrega una imagen de pasteles con una clase personalizada -->
         <img src="{{ asset('/pasteles.jpeg') }}" class="custom-image rounded" alt="Pasteles Image">
         <img src="{{ asset('/pasteles.jpeg') }}" class="custom-image rounded" alt="Pasteles Image">
         <img src="{{ asset('/pasteles.jpeg') }}" class="custom-image rounded" alt="Pasteles Image">
-
-        <!-- Resto del código... -->
-
     </div>
 
-    <!-- Agrega el script de Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+        <!-- Barra de navegación colorida
+<a href="{{ route('createBackup') }}" class="btn btn-primary">Crear Backup</a> -->
 </html>

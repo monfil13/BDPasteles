@@ -15,7 +15,7 @@ use App\Http\Controllers\CakeController;
     }
 
     th, td {
-      border: 1px solid #dddddd;
+      border: 1px solid #000000;
       text-align: left;
       padding: 8px;
     }
