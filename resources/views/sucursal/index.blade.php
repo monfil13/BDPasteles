@@ -7,6 +7,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
+            <h1>Tabla de Sucursales</h1>
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
@@ -18,7 +19,7 @@
 
                              <div class="float-right">
                                 <a href="{{ route('sucursals.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Agregar Sucursal') }}
                                 </a>
                               </div>
                               <div class="float-right">
@@ -37,12 +38,12 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
+                                        <th>ID</th>
 
 										<th>Nombre</th>
-										<th>Direccion</th>
+										<th>Dirección</th>
 										<th>Ciudad</th>
-										<th>Nombrerecepcionista</th>
+										<th>Nombre Recepcionista</th>
 
                                         <th></th>
                                     </tr>
@@ -59,11 +60,11 @@
 
                                             <td>
                                                 <form action="{{ route('sucursals.destroy',$sucursal->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('sucursals.show',$sucursal->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('sucursals.edit',$sucursal->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('sucursals.show',$sucursal->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar Datos') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('sucursals.edit',$sucursal->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
                                                 </form>
                                             </td>
                                         </tr>

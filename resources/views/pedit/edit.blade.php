@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ __('Update') }} Pedit
+    {{ __('Actualizar') }} Pedido
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Pedit</span>
+                        <span class="card-title">{{ __('Actualizar') }} Pedido</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('pedits.update', $pedit->id) }}"  role="form" enctype="multipart/form-data">

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $special->name ?? "{{ __('Show') Special" }}
+    {{ $special->name ?? "{{ __('Mostrar') Pedido Especial" }}
 @endsection
 
 @section('content')
@@ -11,25 +11,25 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Special</span>
+                            <span class="card-title">{{ __('Mostrar') }} Pedido Especial</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('specials.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('specials.index') }}"> {{ __('Regresar') }}</a>
                         </div>
                     </div>
 
                     <div class="card-body">
-                        
+
                         <div class="form-group">
-                            <strong>Id Client:</strong>
+                            <strong>Id Cliente:</strong>
                             {{ $special->id_client }}
                         </div>
                         <div class="form-group">
-                            <strong>Id Pasteler:</strong>
+                            <strong>Id Pastelero:</strong>
                             {{ $special->id_pasteler }}
                         </div>
                         <div class="form-group">
-                            <strong>Descripcion:</strong>
+                            <strong>Descripción:</strong>
                             {{ $special->descripcion }}
                         </div>
                         <div class="form-group">
@@ -37,7 +37,7 @@
                             {{ $special->sabor }}
                         </div>
                         <div class="form-group">
-                            <strong>Fechayhorapedido:</strong>
+                            <strong>Fecha-Hora del Pedido:</strong>
                             {{ $special->fechayhorapedido }}
                         </div>
 

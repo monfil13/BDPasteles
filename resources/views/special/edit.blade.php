@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ __('Update') }} Special
+    {{ __('Actualizar') }} Pedido Especial
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Special</span>
+                        <span class="card-title">{{ __('Actualizar') }} Pedido Especial</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('specials.update', $special->id) }}"  role="form" enctype="multipart/form-data">

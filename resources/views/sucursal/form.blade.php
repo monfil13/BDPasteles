@@ -7,8 +7,8 @@
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('direccion') }}
-            {{ Form::text('direccion', $sucursal->direccion, ['class' => 'form-control' . ($errors->has('direccion') ? ' is-invalid' : ''), 'placeholder' => 'Direccion']) }}
+            {{ Form::label('dirección') }}
+            {{ Form::text('direccion', $sucursal->direccion, ['class' => 'form-control' . ($errors->has('direccion') ? ' is-invalid' : ''), 'placeholder' => 'Dirección']) }}
             {!! $errors->first('direccion', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
@@ -17,8 +17,8 @@
             {!! $errors->first('ciudad', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('nombrerecepcionista') }}
-            {{ Form::text('nombrerecepcionista', $sucursal->nombrerecepcionista, ['class' => 'form-control' . ($errors->has('nombrerecepcionista') ? ' is-invalid' : ''), 'placeholder' => 'Nombrerecepcionista']) }}
+            {{ Form::label('nombre recepcionista') }}
+            {{ Form::text('nombrerecepcionista', $sucursal->nombrerecepcionista, ['class' => 'form-control' . ($errors->has('nombrerecepcionista') ? ' is-invalid' : ''), 'placeholder' => 'Nombre Recepcionista']) }}
             {!! $errors->first('nombrerecepcionista', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 

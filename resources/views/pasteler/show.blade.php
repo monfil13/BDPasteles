@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $pasteler->name ?? "{{ __('Show') Pasteler" }}
+    {{ $pasteler->name ?? "{{ __('Mostrar') Pastelero" }}
 @endsection
 
 @section('content')
@@ -11,15 +11,15 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Pasteler</span>
+                            <span class="card-title">{{ __('Mostrar') }} Pastelero</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('pastelers.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('pastelers.index') }}"> {{ __('Regresar') }}</a>
                         </div>
                     </div>
 
                     <div class="card-body">
-                        
+
                         <div class="form-group">
                             <strong>Nombre:</strong>
                             {{ $pasteler->nombre }}
@@ -33,11 +33,11 @@
                             {{ $pasteler->alias }}
                         </div>
                         <div class="form-group">
-                            <strong>Telefono:</strong>
+                            <strong>Teléfono:</strong>
                             {{ $pasteler->telefono }}
                         </div>
                         <div class="form-group">
-                            <strong>Añostrabajados:</strong>
+                            <strong>Años Trabajados:</strong>
                             {{ $pasteler->añostrabajados }}
                         </div>
 

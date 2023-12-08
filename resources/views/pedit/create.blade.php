@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ __('Create') }} Pedit
+    {{ __('Agregar') }} Pedido
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Create') }} Pedit</span>
+                        <span class="card-title">{{ __('Agregar') }} Pedido</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('pedits.store') }}"  role="form" enctype="multipart/form-data">

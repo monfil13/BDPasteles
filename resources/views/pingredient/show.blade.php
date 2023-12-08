@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $pingredient->name ?? "{{ __('Show') Pingredient" }}
+    {{ $pingredient->name ?? "{{ __('Mostrar') Pastel-Ingrediente" }}
 @endsection
 
 @section('content')
@@ -11,25 +11,25 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Pingredient</span>
+                            <span class="card-title">{{ __('Mostrar') }} Pastel-Ingrediente</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('pingredients.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('pingredients.index') }}"> {{ __('Regresar') }}</a>
                         </div>
                     </div>
 
                     <div class="card-body">
-                        
+
                         <div class="form-group">
-                            <strong>Id Cake:</strong>
+                            <strong>Id Pastel:</strong>
                             {{ $pingredient->id_cake }}
                         </div>
                         <div class="form-group">
-                            <strong>Id Ingredient:</strong>
+                            <strong>Id Ingrediente:</strong>
                             {{ $pingredient->id_ingredient }}
                         </div>
                         <div class="form-group">
-                            <strong>Cantidad:</strong>
+                            <strong>Cantidad de Ingrediente:</strong>
                             {{ $pingredient->cantidad }}
                         </div>
 
