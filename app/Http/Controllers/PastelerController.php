@@ -25,8 +25,17 @@ class PastelerController extends Controller
     }
 
     public function __construct(){
-        $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index']]);
+        $this->middleware('auth', ['only'=>['create', 'store', 'show', 'update', 'edit', 'destroy', 'index'], 'vistaPastelerosApodo']);
     }
+
+/**VISTA */
+
+    public function vistaPastelerosApodo()
+    {
+        $pasteleros = DB::table('vista_pasteleros_ordenados_apodo')->get();
+        return view('pasteler.vistaPastelerosApodo', compact('pasteleros'));
+    }
+
 
     /**
      * Show the form for creating a new resource.

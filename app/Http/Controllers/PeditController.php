@@ -25,8 +25,16 @@ class PeditController extends Controller
     }
 
     public function __construct(){
-        $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index']]);
+        $this->middleware('auth', ['only'=>['create', 'store', 'show', 'update', 'edit', 'destroy', 'index', 'vistaPedidosFecha']]);
     }
+/**VISTA */
+
+    public function vistaPedidosFecha()
+    {
+        $pedidos = DB::table('vista_pedidos_por_fecha')->get();
+        return view('cake.vistaPedidosFecha', compact('pedidos'));
+    }
+
 
     /**
      * Show the form for creating a new resource.

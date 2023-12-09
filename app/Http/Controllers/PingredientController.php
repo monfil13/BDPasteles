@@ -25,7 +25,7 @@ class PingredientController extends Controller
     }
 
     public function __construct(){
-        $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index']]);
+        $this->middleware('auth', ['only'=>['create', 'store', 'show', 'update', 'edit', 'destroy', 'index']]);
     }
     /**
      * Show the form for creating a new resource.

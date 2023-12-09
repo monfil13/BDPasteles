@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Cake;
-use App\Models\Ingredient;
 use Illuminate\Http\Request;
 
 /**
@@ -27,7 +25,7 @@ class CakeController extends Controller
 
 
 public function __construct(){
-    $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index', 'consulta', 'consulta2']]);
+    $this->middleware('auth', ['only'=>['create', 'store', 'show', 'update', 'edit', 'destroy', 'index', 'consulta', 'consulta2']]);
 }
 
 
@@ -48,6 +46,26 @@ public function consulta2()
         $pasteles = Cake::where('precio', '>', 100)->get();
         return view('cake.consulta2', compact('pasteles'));
 }
+
+/*VISTAS* */
+
+public function index2()
+{
+    return view('cake.index2');
+}
+
+public function vistaPastelesNombre()
+{
+    $pasteles = DB::table('vista_pasteles_ordenados_nombre')->get();
+    return view('cake.vistaPastelesNombre', compact('pasteles'));
+}
+
+public function vistaPrecioAlto()
+{
+    $pasteles = DB::table('vista_pasteles_precio_alto')->get();
+    return view('cake.vistaPrecioAlto', compact('pasteles'));
+}
+
 
     /**
      * Show the form for creating a new resource.

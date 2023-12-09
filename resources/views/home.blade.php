@@ -1,32 +1,28 @@
+<?php
+use App\Http\Controllers\VistillaController;
+?>
 @extends('layouts.app')
-
-
-<!-- resources/views/dashboard/index.blade.php -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú de Pasteles</title>
-    <!-- Agrega el enlace al CSS de Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Agrega estilos de CSS personalizados para la barra de navegación -->
     <style>
-        /* Establece el color de fondo y el color del texto de la barra de navegación */
         .custom-navbar {
-            background-color: #383600; /* Color de fondo */
-            color: #ffffff; /* Color del texto */
+            background-color: #383600;
+            color: #ffffff;
         }
-        /* Establece el color de fondo al pasar el ratón por encima de los elementos de la barra de navegación */
+
         .custom-navbar .nav-item:hover {
-            background-color: rgb(130, 132, 28); /* Color de fondo al pasar el ratón por encima */
+            background-color: rgb(120, 122, 52);
         }
         .custom-images-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 150vh; /* Establece la altura del contenedor al 100% de la altura de la ventana */
+            height: 150vh;
             position: relative;
         }
         .custom-images {
@@ -40,7 +36,7 @@
 <body class="bg-light">
 
     <div class="container mt-3">
-        <!-- Barra de navegación colorida -->
+
         <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
             <a class="navbar-brand"><h1>¡Bienvenido a la BD de Pasteles! 🍰</h1></a>
 
@@ -53,7 +49,8 @@
                         <a class="navbar-brand"><h3>👀Ver👀</h3>
                     <a class="nav-link" href="{{ route('cake.consulta') }}">Consulta 1</a>
                     <a class="nav-link" href="{{ route('cake.consulta2') }}">Consulta 2</a>
-                    <a class="nav-link" href="{{ route('cake.consulta3') }}">Consulta 3</a>
+                    <a class="nav-link" href="{{ route('special.consulta3') }}">Consulta 3</a>
+                    <a class="nav-link" href="{{ route('cake.index2') }}">Vistas</a>
                     </li>
 
 <li class="nav-item">
@@ -84,6 +81,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-        <!-- Barra de navegación colorida
+        <!--
 <a href="{{ route('createBackup') }}" class="btn btn-primary">Crear Backup</a> -->
 </html>

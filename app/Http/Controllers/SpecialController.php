@@ -25,7 +25,7 @@ class SpecialController extends Controller
     }
 
     public function __construct(){
-        $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index', 'consulta3']]);
+        $this->middleware('auth', ['only'=>['create', 'store', 'show', 'update', 'edit', 'destroy', 'index', 'consulta3']]);
     }
 
     public function consulta3()

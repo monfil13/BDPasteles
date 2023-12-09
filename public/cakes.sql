@@ -47,7 +47,38 @@ INSERT INTO `cakes` (`id`, `nombre`, `precio`, `created_at`, `updated_at`) VALUE
 
 -- --------------------------------------------------------
 
---
+-- Vistas
+-- Pasteles ordenados por nombre:
+CREATE VIEW vista_pasteles_ordenados_nombre AS
+SELECT id, nombre, precio
+FROM cakes
+ORDER BY nombre;
+
+-- Precio promedio de pasteles registrados:
+CREATE VIEW vista_pasteles_precio_promedio AS
+SELECT AVG(precio) AS precio_promedio
+FROM cakes;
+
+
+-- Pasteleros ordenados por apodos de manera descendente:
+CREATE VIEW vista_pasteleros_ordenados_apodo AS
+SELECT id, nombre, apellido, alias, telefono, añostrabajados
+FROM pastelers
+ORDER BY alias DESC;
+
+-- Pedidos ordenados por fecha de manera ascendente:
+CREATE VIEW vista_pedidos_por_fecha AS
+SELECT id, id_client, fechapedido
+FROM pedits
+ORDER BY fechapedido ASC;
+
+-- Clientes que tienen su número telefónico con lada de Teziutlán
+CREATE VIEW vista_numero_teziutlan AS
+SELECT id, nombre, direccion, telefono
+FROM clients
+WHERE telefono LIKE '231%';
+
+
 -- Estructura de tabla para la tabla `consultas`
 --
 

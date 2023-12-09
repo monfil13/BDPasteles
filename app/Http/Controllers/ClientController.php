@@ -25,8 +25,16 @@ class ClientController extends Controller
     }
 
     public function __construct(){
-        $this->middleware('auth', ['only'=>['update', 'edit', 'destroy', 'index']]);
+        $this->middleware('auth', ['only'=>['create', 'store', 'show', 'update', 'edit', 'destroy', 'index', 'vistaNumerosTeziu']]);
     }
+
+
+/*VISTA*/
+public function vistaNumerosTeziu()
+{
+    $clientes = DB::table('vista_numero_teziutlan')->get();
+    return view('client.vistaNumerosTeziu', compact('clientes'));
+}
 
     /**
      * Show the form for creating a new resource.
