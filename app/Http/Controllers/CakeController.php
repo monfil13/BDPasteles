@@ -25,7 +25,8 @@ class CakeController extends Controller
 
 
 public function __construct(){
-    $this->middleware('auth', ['only'=>['create', 'store', 'show', 'update', 'edit', 'destroy', 'index', 'consulta', 'consulta2']]);
+    $this->middleware('auth', ['only'=>['create', 'store', 'show', 'update', 'edit', 'destroy', 'index',
+    'consulta', 'consulta2', 'index2', 'vistaPastelesNombre', 'vistaPrecioPromedio']]);
 }
 
 
@@ -47,25 +48,26 @@ public function consulta2()
         return view('cake.consulta2', compact('pasteles'));
 }
 
-/*VISTAS* */
-
+/**Menú de Vistas */
 public function index2()
 {
     return view('cake.index2');
 }
 
+/*VISTAS*/
+
 public function vistaPastelesNombre()
 {
-    $pasteles = DB::table('vista_pasteles_ordenados_nombre')->get();
-    return view('cake.vistaPastelesNombre', compact('pasteles'));
+    $pastelesOrdenados = Cake::orderBy('nombre', 'asc')->get();
+    return view('cake/vistaPastelesNombre', compact('pastelesOrdenados'));
 }
 
-public function vistaPrecioAlto()
+public function vistaPrecioPromedio()
 {
-    $pasteles = DB::table('vista_pasteles_precio_alto')->get();
-    return view('cake.vistaPrecioAlto', compact('pasteles'));
+    $pasteles = Cake::all();
+    $promedioPrecios = Cake::avg('precio');
+    return view('cake/vistaPrecioPromedio', compact('pasteles', 'promedioPrecios'));
 }
-
 
     /**
      * Show the form for creating a new resource.

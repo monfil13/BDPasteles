@@ -43,7 +43,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <a class="nav-link" href="{{ route('cake.vistaPastelesNombre') }}">Vista1</a>
-                    <a class="nav-link" href="{{ route('cake.vistaPrecioAlto') }}">Vista2</a>
+                    <a class="nav-link" href="{{ route('cake.vistaPrecioPromedio') }}">Vista2</a>
                     <a class="nav-link" href="{{ route('pasteler.vistaPastelerosApodo') }}">Vista3</a>
                     <a class="nav-link" href="{{ route('pedit.vistaPedidosFecha') }}">Vista4</a>
                     <a class="nav-link" href="{{ route('client.vistaNumerosTeziu') }}">Vista5</a>

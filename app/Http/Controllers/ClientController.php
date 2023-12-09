@@ -29,12 +29,14 @@ class ClientController extends Controller
     }
 
 
-/*VISTA*/
+/*VISTA */
 public function vistaNumerosTeziu()
 {
-    $clientes = DB::table('vista_numero_teziutlan')->get();
-    return view('client.vistaNumerosTeziu', compact('clientes'));
+    $clientesConTelefono = Client::where('telefono', 'LIKE', '231%')->get();
+    $clientesSinTelefono = Client::where('telefono', 'NOT LIKE', '231%')->orWhereNull('telefono')->get();
+    return view('client.vistaNumerosTeziu', compact('clientesConTelefono', 'clientesSinTelefono'));
 }
+
 
     /**
      * Show the form for creating a new resource.

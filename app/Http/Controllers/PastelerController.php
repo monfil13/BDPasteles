@@ -32,7 +32,7 @@ class PastelerController extends Controller
 
     public function vistaPastelerosApodo()
     {
-        $pasteleros = DB::table('vista_pasteleros_ordenados_apodo')->get();
+        $pasteleros = Pasteler::orderBy('alias', 'asc')->get();
         return view('pasteler.vistaPastelerosApodo', compact('pasteleros'));
     }
 

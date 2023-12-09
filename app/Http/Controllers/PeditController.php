@@ -31,9 +31,10 @@ class PeditController extends Controller
 
     public function vistaPedidosFecha()
     {
-        $pedidos = DB::table('vista_pedidos_por_fecha')->get();
-        return view('cake.vistaPedidosFecha', compact('pedidos'));
+        $pedidos = Pedit::orderBy('fechapedido', 'asc')->get();
+        return view('pedit.vistaPedidosFecha', compact('pedidos'));
     }
+
 
 
     /**

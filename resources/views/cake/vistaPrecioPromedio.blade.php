@@ -35,29 +35,25 @@ use App\Http\Controllers\CakeController;
 <div class="float-right" align="right">
     <a class="btn btn-primary" href="{{ route('cake.index2') }}"> {{ __('Regresar') }}</a>
 </div>
-<h2 align="center">Vista de Pasteles Ordenados Por Nombres de manera Ascendente</h2>
+<h2 align="center">Vista de Pasteles Con Promedio Total de Todos Ellos</h2>
 
-<table>
-<thead>
-<tr>
-<th>ID</th>
-<th>NOMBRE DEL PASTEL</th>
-<th>PRECIO</th>
-</tr>
-</thead>
-
-@forelse ($pastelesOrdenados as $pastel)
-<tr>
-    <th>{{$pastel->id}}</th>
-    <th>{{$pastel->nombre}}</th>
-    <th>{{$pastel->precio}}</th>
-    </tr>
-@empty
-<tr>No hay datos</tr>
-@endforelse
-
+<table style="background-color: #87CEEB; padding: 10px;">
+    <thead>
+        <tr>
+            <th>NOMBRE</th>
+            <th>PRECIO</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($pasteles as $pastel)
+            <tr>
+                <td>{{ $pastel->nombre }}</td>
+                <td>${{ $pastel->precio }}</td>
+            </tr>
+        @endforeach
+        <tr>
+            <td><strong>PROMEDIO</strong></td>
+            <td><strong>${{ number_format($promedioPrecios, 2) }}</strong></td>
+        </tr>
+    </tbody>
 </table>
-
-</table>
-</body>
-</html>

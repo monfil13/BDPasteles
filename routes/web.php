@@ -49,7 +49,7 @@ Route::get('/special/consulta3', [App\Http\Controllers\SpecialController::class,
 /* Rutas para vistas*/
 Route::get('/cake/index2', [App\Http\Controllers\CakeController::class, 'index2'])->name('cake.index2');
 Route::get('/cake/vistaPastelesNombre', [App\Http\Controllers\CakeController::class, 'vistaPastelesNombre'])->name('cake.vistaPastelesNombre');
-Route::get('/cake/vistaPrecioAlto', [App\Http\Controllers\CakeController::class, 'vistaPrecioAlto'])->name('cake.vistaPrecioAlto');
+Route::get('/cake/vistaPrecioPromedio', [App\Http\Controllers\CakeController::class, 'vistaPrecioPromedio'])->name('cake.vistaPrecioPromedio');
 Route::get('/pedit/vistaPedidosFecha', [App\Http\Controllers\PeditController::class, 'vistaPedidosFecha'])->name('pedit.vistaPedidosFecha');
 Route::get('/pasteler/vistaPastelerosApodo', [App\Http\Controllers\PastelerController::class, 'vistaPastelerosApodo'])->name('pasteler.vistaPastelerosApodo');
 Route::get('/client/vistaNumerosTeziu', [App\Http\Controllers\ClientController::class, 'vistaNumerosTeziu'])->name('client.vistaNumerosTeziu');
