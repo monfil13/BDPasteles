@@ -60,7 +60,7 @@ use App\Http\Controllers\CakeController;
         </tbody>
     </table>
 
-    <h2 align="center">Clientes con Lada diferente</h2>
+    <h2 align="center">Otra Lada</h2>
     <table border="1">
         <thead>
             <tr>
