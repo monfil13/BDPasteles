@@ -38,7 +38,7 @@ use App\Http\Controllers\CakeController;
 
 <table style="background-color: #63c8ad; padding: 10px;">
 
-    <h2 align="center">Clientes con Lada Teziutlán o comienzo de Teléfono "231"</h2>
+    <h2 align="center">Clientes con Lada de Teziutlán</h2>
     <table border="1">
         <thead>
             <tr>
